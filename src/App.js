@@ -2,8 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Event from './api/Event.js';
-import EventViewer from './ui/EventViewer.js';
+import MainView from './ui/MainView';
 
 function App() {
   let data = {text: "you"};
@@ -14,8 +13,7 @@ function App() {
     data = temp;
   }
   console.log(data);
-  let currEvent = new Event();
-  currEvent.populateFLL();
+
   return (
     <div className="App westli">
       <header className="App-header">
@@ -31,8 +29,8 @@ function App() {
         >
           Learn React
         </a>
-        <EventViewer data={currEvent}/>
       </header>
+      <MainView/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import Role from "./Role";
+import { RoleInstance } from "./Role";
 import { roles } from './fll.json';
 
 export default class Event {
@@ -9,6 +9,10 @@ export default class Event {
     }
 
     populateFLL() {
-        roles.forEach((r) => this.roles.push(new Role(r)));
+        roles.forEach((r) => this.roles.push(new RoleInstance(r)));
+    }
+
+    setDays(n) {
+        this.days = n;
     }
 }
