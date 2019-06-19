@@ -18,7 +18,9 @@
     "electron-dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "build -w"
+    "electron-pack": "build -w",
+    "electron-pack-mac": "build -m",
+    "electron-pack-linux": "build -l"
   },
   "rescripts": [
     "env"
@@ -58,6 +60,7 @@
     "productName": "Voluntrol",
     "copyright": "Copyright © 2019 ${author}",
     "mac": {
+      "target": "zip",
       "category": "public.app-category.utilities"
     },
     "files": [
