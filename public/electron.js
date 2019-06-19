@@ -18,7 +18,7 @@ const store = new Store({
 
 function createWindow() {
     let {width, height} = store.get('windowBounds');
-    mainWindow = new BrowserWindow({width: width, height: height});
+    mainWindow = new BrowserWindow({width: width, height: height, icon: __dirname + 'assets/favicon.ico'});
     mainWindow.on('resize', () => {
         let { width, height } = mainWindow.getBounds();
         store.set('windowBounds', {width, height}); 

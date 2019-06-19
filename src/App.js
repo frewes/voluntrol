@@ -12,10 +12,10 @@ function App() {
   }
   console.log(data);
   return (
-    <div className="App">
+    <div className="App westli">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p className="westli">
           Shake <code>src/App.js</code> and save to reload {data.text}.
         </p>
         <a
