@@ -5,7 +5,7 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const isDev = require('electron-is-dev');
 
-const Store = require('../src/store.js');
+const Store = require('electron-store');
 
 let mainWindow;
 

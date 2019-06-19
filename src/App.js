@@ -3,12 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let data = {text: "you"};
+  let temp = JSON.parse(localStorage.getItem('test'));
+  if (temp == null) {
+    console.log("Undefined");
+  } else {
+    data = temp;
+  }
+  console.log(data);
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Shake <code>src/App.js</code> and save to reload.
+          Shake <code>src/App.js</code> and save to reload {data.text}.
         </p>
         <a
           className="App-link"
