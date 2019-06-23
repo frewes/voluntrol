@@ -1,4 +1,4 @@
-import { RoleInstance } from "./Role";
+import { RoleInstance, RoleType } from "./Role";
 import { roles } from './fll.json';
 
 export default class Event {
