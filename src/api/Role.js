@@ -7,8 +7,16 @@ export class RoleType {
 export class RoleInstance {
     constructor(role) {
         this.role = role;
-        this.numbers=[1,1,1,1,1,1];
-        this.vols = [["Name 1"],["Name 2"],["Name 3"],["Name 4"],["Name 5"],["Name 6"]];
+        this.vols = [["Name 1"],["Name 1"],["Name 1"],["Name 1"],["Name 1"]];
+    }
+
+    number(i,v) {
+        while (this.vols[i].length < v) {
+            this.vols[i].push("Name "+(this.vols[i].length+1));
+        }
+        while (this.vols[i].length > v) {
+            this.vols[i].pop();
+        }
     }
 }
 
