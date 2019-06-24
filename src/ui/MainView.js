@@ -3,6 +3,8 @@ import React from 'react';
 import Event from '../api/Event';
 import EventView from './EventView';
 
+import { Container } from 'reactstrap';
+
 export default class MainView extends React.Component {
     constructor(props) {
         super(props);
@@ -20,9 +22,10 @@ export default class MainView extends React.Component {
         
     render() {
         return (
-        <div>
+        <Container>
+            <br/>
             <EventView data={this.state.event} update={this.updateEvent}/>
-        </div>
+        </Container>
         );
     }
 }

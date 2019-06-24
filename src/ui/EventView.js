@@ -2,6 +2,8 @@ import React from 'react';
 
 import RoleEditor from './RoleEditor';
 
+import { Table, Input, InputGroup, InputGroupAddon } from 'reactstrap';
+
 export default class EventView extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,6 @@ export default class EventView extends React.Component {
         this.handleDayChange = this.handleDayChange.bind(this);
         this.handleRoleChange = this.handleRoleChange.bind(this);
     }
-
 
     handleTitleChange(e) {
         let E = this.props.data;
@@ -35,21 +36,26 @@ export default class EventView extends React.Component {
         console.log(this.props.data);
         return (
             <div>
-                <input type="text" value={this.props.data.title} onChange={this.handleTitleChange}/>
-                <input type="number" value={this.props.data.days} min={1} max={6} step={1} onChange={this.handleDayChange}/>
-                <table>
+                <InputGroup>
+                    <Input type="text" value={this.props.data.title} onChange={this.handleTitleChange}/>
+                    <Input type="number" value={this.props.data.days} min={1} max={5} step={1} onChange={this.handleDayChange}/>
+                    <InputGroupAddon addonType="append">days</InputGroupAddon>
+                </InputGroup>
+                <Table striped>
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            {[...Array(this.props.data.days)].map((u,i) => {
+                                return <th key={i}>Day {i+1}</th>
+                            })}
+                        </tr>
+                    </thead>
                     <tbody>
-                    <tr>
-                        <td>Role</td>
-                        {[...Array(this.props.data.days)].map((u,i) => {
-                            return <td key={i}>Day {i+1}</td>
-                        })}
-                    </tr>
-                    {this.props.data.roles.map((r,i) => { return (
-                        <RoleEditor key={i} data={r} days={this.props.data.days} update={(r) => {this.handleRoleChange(i,r)}}/>
-                    );})}
+                        {this.props.data.roles.map((r,i) => { return (
+                            <RoleEditor key={i} data={r} days={this.props.data.days} update={(r) => {this.handleRoleChange(i,r)}}/>
+                        );})}
                     </tbody>
-                </table>
+                </Table>
             </div>
         );
     }
